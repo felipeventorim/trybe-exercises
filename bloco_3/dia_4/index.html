@@ -4,24 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Conheça o Stomatopoda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
       <h1>Soco a 80km/h: Conheça o Stomatopoda</h1>
     </header>
-    <nav>
-      <ul>
-        <li><a href="">Página Inicial</a></li>
-        <li><a href="">Sobre</a></li>
-        <li><a href="">Contato</a></li>
-      </ul>
-    </nav>
+    <div class="caixa">
+      <img src="image/logo.png" alt="desenho do Stomatopoda">
+      <nav>
+        <ul>
+          <li><a href="#imagem">Página Inicial</a></li>
+          <li><a href="#geral">Sobre</a></li>
+          <li><a href="#ref">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+    <img id="imagem" src="image/Odontodactylus_scyllarus.jpg" alt="Stomatopoda de frente">
     <article>
       <h2>Fatos sobre o Stomatopoda</h2>
-      <section>
+      <section id="geral">
         <div>
           <h3>Informações gerais</h3>
-          <img src="image/Odontodactylus_scyllarus.jpg" alt="Stomatopoda de frente">
           <p>
             Stomatopoda (<em>Odontodactylus scyllarus</em>), chamados popularmente 
             de tamarutacas ou de lacraias-do-mar no Brasil, é uma 
@@ -34,7 +40,7 @@
         </div>
         <table>
           <tr>
-            <th><h4>Classificação científica</h4></th>
+            <th colspan="2">Classificação científica</th>
           </tr>
           <tr>
             <td>Reino:</td>
@@ -71,7 +77,7 @@
           </tr>
         </table>
       </section>
-      <section>
+      <section class="fato">
         <h3>Super Visão</h3>
         <img src="image/Mantis-visao.jpeg" alt="Olhos do Stomatopoda">
         <p>
@@ -101,7 +107,7 @@
           luz e beleza.</em>
         </p>
       </section>
-      <section>
+      <section class="fato">
         <h3>Boxeador dos mares</h3>
         <img src="image/mantis-boxeador.jpg" alt="Stomatopoda de corpo inteiro">
         <p>
@@ -116,8 +122,9 @@
           mesmo quebrar o vidro reforçado de um aquário.
         </p>
       </section>
-      <section>
+      <section class="fato">
         <h3>Predador Letal</h3>
+        <img src="image/Mantis-shrimp.jpg" alt="Stomatopoda de lado">
         <p>
           As lagostas-boxeadoras costumam ser encontradas 
           próximo à costa de mares tropicais e subtropicais e 
@@ -129,7 +136,7 @@
           do planeta.</b>
         </p>
       </section>
-      <section>
+      <section id="ref">
         <h3>Referências</h3>
         <ol>
           <li><a href="https://pt.wikipedia.org/wiki/Stomatopoda">Wikipedia - Stomatopoda</a></li>
