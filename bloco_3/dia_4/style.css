@@ -7,14 +7,14 @@ body {
   background-color: aqua;
 }
 header {
-  background-color: #CCCCCC;
+  background-color: #cccccc;
   padding: 15px 0px;
   text-align: center;
 }
 .caixa {
   display: inline-block;
   width: 100%;
-  background-color: #CCCCCC;
+  background-color: #cccccc;
   padding-bottom: 20px;
 }
 .caixa img {
@@ -34,8 +34,8 @@ nav a {
   font-size: 18px;
   text-transform: uppercase;
   color: #000000;
-	font-weight: bold;
-	text-decoration: none;
+  font-weight: bold;
+  text-decoration: none;
 }
 nav a:hover {
   color: aqua;
@@ -55,7 +55,7 @@ h3 {
 }
 article {
   margin: 2em 10em;
-  background: linear-gradient(#FEFEFE, #888888);
+  background: linear-gradient(#fefefe, #888888);
   padding: 0 15px;
 }
 p {
@@ -63,15 +63,15 @@ p {
 }
 #geral div {
   display: inline-block;
-  max-width: 50%;
+  max-width: 70%;
 }
 #geral table {
   float: right;
-  border: 1px solid #CCCCCC;
+  border: 1px solid #cccccc;
   margin: 0 0 0.5em 1em;
 }
 table th {
-  background-color: #CCCCCC;
+  background-color: #cccccc;
   text-align: center;
 }
 table td {
@@ -94,6 +94,7 @@ table td {
 .video {
   text-align: center;
 }
-aside, footer {
+aside,
+footer {
   margin: 2em 10em;
 }
