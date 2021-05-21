@@ -4,7 +4,7 @@ let n = 5;
 let linha = [];
 let insereAsterisco = n;
 
-for (let indexColuna = 1; indexColuna <=n; indexColuna++) {
+for (let indexColuna = 1; indexColuna <= n; indexColuna++) {
   for (let indexLinha = 1; indexLinha <= n; indexLinha++) {
     if (indexLinha < insereAsterisco) {
       linha += ' ';
