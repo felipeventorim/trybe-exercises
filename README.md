@@ -1,4 +1,4 @@
- Trybe
+# Trybe
 
 Este repositório contém todas as atividades de aprendizagem desenvolvidas por _[Felipe Ventorim Mendonça](https://www.linkedin.com/in/felipeventorim/)_ enquanto estuda na [Trybe](https://www.betrybe.com/) :rocket:
 
@@ -25,7 +25,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 3-2: _HTML & CSS - Primeiros passos em CSS_
 - [X] 3-3: _HTML & CSS - Seletores e posicionamento_
 - [X] 3-4: _HTML Semântico_
-- [X] 3-5: _[Projeto - Lessons Learned]()_
+- [X] 3-5: _[Projeto - Lessons Learned](https://github.com/felipeventorim/trybe-projects/tree/main/01-lessons-learned)_
 
 ##### Bloco 4: Introdução - JavaScript
 
