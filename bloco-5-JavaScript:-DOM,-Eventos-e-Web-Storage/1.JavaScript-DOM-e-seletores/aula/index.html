@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2 id="page-title">Título</h2>
+    <p id="paragraph" class="paragrafo">Dê uma cor para este parágrafo!</p>
+    <h4 id="subtitle">Subtítulo</h4>
+    <p id="second-paragraph" class="paragrafo">Segundo parágrafo!</p>
+
+    <script>
+      const pageTitle = document.getElementById('page-title');
+      const paragraph = document.getElementById('paragraph');
+      const subtitle = document.getElementById('subtitle');
+      const secondParagraph = document.getElementById('second-paragraph');
+
+      pageTitle.innerText = 'Inception';
+      pageTitle.style.fontSize = '48px';
+
+      paragraph.style.color = 'red';
+      paragraph.style.backgroundColor = 'black';
+      paragraph.innerText = 'Gênero: ficção científica, ação';
+
+      subtitle.innerText = 'Diretor: Christopher Nolan';
+
+      secondParagraph.innerText =
+        'Dom Cobb é um ladrão com a rara habilidade de roubar segredos do inconsciente, obtidos durante o estado de sono. Impedido de retornar para sua família, ele recebe a oportunidade de se redimir ao realizar uma tarefa aparentemente impossível: plantar uma ideia na mente do herdeiro de um império. Para realizar o crime perfeito, ele conta com a ajuda do parceiro Arthur, o discreto Eames e a arquiteta de sonhos Ariadne. Juntos, eles correm para que o inimigo não antecipe seus passos.';
+
+      document.getElementsByClassName('paragrafo')[0].style.textAlign =
+        'center';
+
+      document.getElementsByTagName('h4')[0].style.color = 'blue';
+    </script>
+  </body>
+</html>
