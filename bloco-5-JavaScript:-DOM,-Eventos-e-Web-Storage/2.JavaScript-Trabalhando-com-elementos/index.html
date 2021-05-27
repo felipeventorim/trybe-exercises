@@ -115,7 +115,14 @@
       ulList.appendChild(createItemList('nove'));
       ulList.appendChild(createItemList('Dez'));
 
-      
+      // 9. Adicione 3 tags h3 , todas sendo filhas do div criado no passo 2.
+      function createH3() {
+        return document.createElement('h3');
+      }
+
+      divMainContent.appendChild(createH3());
+      divMainContent.appendChild(createH3());
+      divMainContent.appendChild(createH3());
     </script>
   </body>
 </html>
