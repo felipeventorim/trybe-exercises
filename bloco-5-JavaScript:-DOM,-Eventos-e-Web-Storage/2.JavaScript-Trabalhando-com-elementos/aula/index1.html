@@ -30,7 +30,7 @@
     elementoOndeVoceEsta.firstElementChild.innerText = 'texto';
 
     // Acesse o primeiroFilho a partir de pai .
-    document.querySelector('#pai').firstChild;
+    document.querySelector('#pai').firstElementChild;
 
     // Agora acesse o primeiroFilho a partir de elementoOndeVoceEsta .
     elementoOndeVoceEsta.previousSibling;
@@ -62,6 +62,16 @@
 
     // A partir desse filho criado, acesse terceiroFilho .
     document.querySelector('#primeiroFilhoDoFilho div').parentNode.parentNode.nextElementSibling;
+
+    // 3.
+    // Remova todos os elementos filhos de paiDoPai exceto pai , elementoOndeVoceEsta e primeiroFilhoDoFilho .
+    elementoOndeVoceEsta.removeChild(document.querySelector('#segundoEUltimoFilhoDoFilho'));
+
+    document.querySelector('#pai').removeChild(document.querySelector('#pai').firstElementChild);
+    document.querySelector('#pai').removeChild(document.querySelector('#pai').lastElementChild);
+    document.querySelector('#pai').removeChild(document.querySelector('#pai').lastElementChild);
+    document.querySelector('#pai').removeChild(document.querySelector('#pai').lastElementChild);
+
   </script>
 </body>
 </html>
