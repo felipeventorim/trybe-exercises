@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const divUm = document.getElementById('divUm');
 const divDois = document.getElementById('divDois');
 const divTres = document.getElementById('divTres');
@@ -8,23 +9,19 @@ const myWebpage = document.getElementById('mySpotrybefy');
 
 // 2. Crie uma função que adicione a classe 'tech' ao elemento selecionado;
 // 2.1. Deve existir apenas um elemento com a classe 'tech'. Como você faz isso?
-divUm.addEventListener('click', adicionaClasseTech);
-divDois.addEventListener('click', adicionaClasseTech);
-divTres.addEventListener('click', adicionaClasseTech);
-
 function adicionaClasseTech(event) {
   divUm.classList.remove('tech');
   divDois.classList.remove('tech');
   divTres.classList.remove('tech');
-
+  
   event.target.className = 'tech';
 }
+divUm.addEventListener('click', adicionaClasseTech);
+divDois.addEventListener('click', adicionaClasseTech);
+divTres.addEventListener('click', adicionaClasseTech);
 
 // 3. Crie uma função que, ao digitar na caixa de texto, altere o texto do elemento
 // com a classe 'tech';
-input.addEventListener('keyup', alteraTextoDaTech);
-input.addEventListener('change', apagarTexto);
-
 function alteraTextoDaTech(event) {
   if (divUm.className === 'tech') {
     divUm.innerText = event.target.value;
@@ -39,27 +36,27 @@ function alteraTextoDaTech(event) {
 function apagarTexto() {
   input.value = '';
 }
+input.addEventListener('keyup', alteraTextoDaTech);
+input.addEventListener('change', apagarTexto);
 
 // 4. Crie uma função que, ao clicar duas vezes em 'Meu top 3 do Spotrybefy', ele
 // redirecione para alguma página;
 // 4.1. Que tal redirecionar para seu portifólio?
-myWebpage.addEventListener('dblclick', abrePagina);
-
 function abrePagina() {
   window.open('http://www.google.com.br');
 }
+myWebpage.addEventListener('dblclick', abrePagina);
 
 // 5. Crie uma função que, ao passar o mouse sobre 'Meu top 3 do Spotrybefy', altere
 // a cor do mesmo;
-myWebpage.addEventListener('mouseenter' , mudaCor);
-myWebpage.addEventListener('mouseleave' , cor);
-
 function mudaCor(event) {
   event.target.style.color = 'rgb(17, 163, 106)';
 }
 function cor(event) {
   event.target.style.color = 'white';
 }
+myWebpage.addEventListener('mouseenter', mudaCor);
+myWebpage.addEventListener('mouseleave', cor);
 
 // Segue abaixo um exemplo do uso de event.target:
 
