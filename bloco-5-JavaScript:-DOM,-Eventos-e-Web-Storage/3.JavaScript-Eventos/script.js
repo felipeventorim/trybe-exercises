@@ -87,6 +87,18 @@ function friday(sexta) {
   button.addEventListener('click', fridayText);
 }
 
+function createColorTask(cor) {
+  const div = document.createElement('div');
+  div.className = 'task';
+  div.style.backgroundColor = cor;
+  return div;
+}
+
+function addColorTask(cor) {
+  const myTasks = document.querySelector('.my-tasks');
+  myTasks.appendChild(createColorTask(cor));
+}
+
 function createTask() {
   const taskInput = document.getElementById('task-input');
   const span = document.createElement('span');
@@ -94,9 +106,18 @@ function createTask() {
   return span;
 }
 
+function createRGB() {
+  const r = Math.floor(Math.random() * 255);
+  const g = Math.floor(Math.random() * 255);
+  const b = Math.floor(Math.random() * 255);
+  let rgb = 'rgb(';
+  return rgb.concat(r, ', ', g, ', ', b, ')');
+}
+
 function addTask() {
   const myTasks = document.querySelector('.my-tasks');
   myTasks.appendChild(createTask());
+  addColorTask(createRGB());
 }
 
 function tasks() {
