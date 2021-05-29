@@ -87,10 +87,26 @@ function friday(sexta) {
   button.addEventListener('click', fridayText);
 }
 
+function selectTask(event) {
+  const classSelected = 'selected';
+  const taskSelected = document.getElementsByClassName('task selected');
+  const tarefaAtual = event.target.classList;
+  if (event.target.className !== 'task selected') {
+    for (let index = 0; index < taskSelected.length; index += 1) {
+      const classe = taskSelected[index].classList;
+      classe.remove(classSelected);
+    }
+    tarefaAtual.add(classSelected);
+  } else {
+    tarefaAtual.remove(classSelected);
+  }
+}
+
 function createColorTask(cor) {
   const div = document.createElement('div');
   div.className = 'task';
   div.style.backgroundColor = cor;
+  div.addEventListener('click', selectTask);
   return div;
 }
 
@@ -110,7 +126,7 @@ function createRGB() {
   const r = Math.floor(Math.random() * 255);
   const g = Math.floor(Math.random() * 255);
   const b = Math.floor(Math.random() * 255);
-  let rgb = 'rgb(';
+  const rgb = 'rgb(';
   return rgb.concat(r, ', ', g, ', ', b, ')');
 }
 
