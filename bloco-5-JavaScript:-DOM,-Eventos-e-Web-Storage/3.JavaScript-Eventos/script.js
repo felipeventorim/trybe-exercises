@@ -14,6 +14,14 @@ function createDaysOfTheWeek() {
 createDaysOfTheWeek();
 
 // Escreva seu código abaixo.
+function zoomIn(event) {
+  event.target.style.fontSize = '2em';
+}
+
+function zoomOut(event) {
+  event.target.style.fontSize = '1em';
+}
+
 function AddDays(dezDaysList, index) {
   const li = document.createElement('li');
   li.innerText = dezDaysList[index];
@@ -24,7 +32,16 @@ function AddDays(dezDaysList, index) {
   if ((dezDaysList[index] - 4) % 7 === 0) {
     li.classList.add('friday');
   }
+  li.addEventListener('mouseenter', zoomIn);
+  li.addEventListener('mouseleave', zoomOut);
   return li;
+}
+
+function createDays(dezDaysList) {
+  const days = document.getElementById('days');
+  for (let index = 0; index < dezDaysList.length; index += 1) {
+    days.appendChild(AddDays(dezDaysList, index));
+  }
 }
 
 function holidayColor() {
@@ -74,10 +91,7 @@ function friday(sexta) {
 const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
   11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 
   26, 27, 28, 29, 30, 31];
-const days = document.getElementById('days');
-for (let index = 0; index < dezDaysList.length; index += 1) {
-  days.appendChild(AddDays(dezDaysList, index));
-}
 
+createDays(dezDaysList);
 holiday('Feriados');
 friday('Sexta-feira');
