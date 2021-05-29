@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 function createDaysOfTheWeek() {
   const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
   const weekDaysList = document.querySelector('.week-days');
@@ -11,18 +12,16 @@ function createDaysOfTheWeek() {
   }
 }
 
-createDaysOfTheWeek();
-
 // Escreva seu código abaixo.
 function zoomIn(event) {
-  event.target.style.fontSize = '2em';
+  event.target.style.fontSize = '30px';
 }
 
 function zoomOut(event) {
-  event.target.style.fontSize = '1em';
+  event.target.style.fontSize = '20px';
 }
 
-function AddDays(dezDaysList, index) {
+function createDays(dezDaysList, index) {
   const li = document.createElement('li');
   li.innerText = dezDaysList[index];
   li.classList.add('day');
@@ -37,10 +36,10 @@ function AddDays(dezDaysList, index) {
   return li;
 }
 
-function createDays(dezDaysList) {
+function addDays(dezDaysList) {
   const days = document.getElementById('days');
   for (let index = 0; index < dezDaysList.length; index += 1) {
-    days.appendChild(AddDays(dezDaysList, index));
+    days.appendChild(createDays(dezDaysList, index));
   }
 }
 
@@ -88,10 +87,33 @@ function friday(sexta) {
   button.addEventListener('click', fridayText);
 }
 
-const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
-  11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 
-  26, 27, 28, 29, 30, 31];
+function createTask() {
+  const taskInput = document.getElementById('task-input');
+  const span = document.createElement('span');
+  span.innerText = taskInput.value;
+  return span;
+}
 
-createDays(dezDaysList);
-holiday('Feriados');
-friday('Sexta-feira');
+function addTask() {
+  const myTasks = document.querySelector('.my-tasks');
+  myTasks.appendChild(createTask());
+}
+
+function tasks() {
+  const btnAdd = document.getElementById('btn-add');
+  btnAdd.addEventListener('click', addTask);
+}
+
+function inicio() {
+  createDaysOfTheWeek();
+  const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
+    11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 
+    26, 27, 28, 29, 30, 31];
+  
+  addDays(dezDaysList);
+  holiday('Feriados');
+  friday('Sexta-feira');
+  tasks();
+  }
+
+window.onload = inicio;
