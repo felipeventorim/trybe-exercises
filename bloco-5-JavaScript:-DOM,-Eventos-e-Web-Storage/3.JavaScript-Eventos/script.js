@@ -17,12 +17,12 @@ createDaysOfTheWeek();
 function AddDays(dezDaysList, index) {
   const li = document.createElement('li');
   li.innerText = dezDaysList[index];
+  li.classList.add('day');
   if (dezDaysList[index] === 24 || dezDaysList[index] === 25 || dezDaysList[index] === 31) {
-    li.className = 'day holiday';
-  } else if ((dezDaysList[index] - 4) % 7 === 0) {
-    li.className = 'day friday';
-  } else {
-    li.className = 'day';
+    li.classList.add('holiday');
+  } 
+  if ((dezDaysList[index] - 4) % 7 === 0) {
+    li.classList.add('friday');
   }
   return li;
 }
@@ -40,6 +40,21 @@ function holidayColor() {
   }
 }
 
+function fridayText() {
+  const sextas = [4, 11, 18, 25];
+  const sextaText = 'SEXTOU!';
+  const sexta = document.getElementsByClassName('friday');
+  for (let index = 0; index < sextas.length; index += 1) {
+    if (sexta[index].innerText === sextaText) {
+      sexta[index].innerText = sextas[index];
+      sexta[index].style.backgroundImage = 'none';
+    } else {
+      sexta[index].innerText = sextaText;
+      sexta[index].style.backgroundImage = 'linear-gradient(red, yellow)';
+    }
+  }
+}
+
 function holiday(feriados) {
   const button = document.createElement('button');
   button.id = 'btn-holiday';
@@ -53,6 +68,7 @@ function friday(sexta) {
   button.id = 'btn-friday';
   button.innerText = sexta;
   document.querySelector('.buttons-container').appendChild(button);
+  button.addEventListener('click', fridayText);
 }
 
 const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
