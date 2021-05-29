@@ -21,6 +21,18 @@ function zoomOut(event) {
   event.target.style.fontSize = '20px';
 }
 
+function putColorTask(event) {
+  const colorTask = document.querySelector('.selected');
+  if (colorTask) {
+    if (event.target.style.color === colorTask.style.backgroundColor) {
+      event.target.style.color = 'rgb(119,119,119)';
+    } else {
+      event.target.style.color = colorTask.style.backgroundColor;
+    }
+  }
+  console.log(event.target);
+}
+
 function createDays(dezDaysList, index) {
   const li = document.createElement('li');
   li.innerText = dezDaysList[index];
@@ -33,6 +45,7 @@ function createDays(dezDaysList, index) {
   }
   li.addEventListener('mouseenter', zoomIn);
   li.addEventListener('mouseleave', zoomOut);
+  li.addEventListener('click', putColorTask);
   return li;
 }
 
