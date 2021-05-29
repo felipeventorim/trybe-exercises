@@ -30,7 +30,6 @@ function putColorTask(event) {
       event.target.style.color = colorTask.style.backgroundColor;
     }
   }
-  console.log(event.target);
 }
 
 function createDays(dezDaysList, index) {
@@ -58,7 +57,7 @@ function addDays(dezDaysList) {
 
 function holidayColor() {
   const feriados = [24, 25, 31];
-  const feriadoColor = 'red';
+  const feriadoColor = 'rgb(17, 163, 106)';
   const feriado = document.getElementsByClassName('holiday');
   for (let index = 0; index < feriados.length; index += 1) {
     if (feriado[index].style.backgroundColor === feriadoColor) {
@@ -76,10 +75,12 @@ function fridayText() {
   for (let index = 0; index < sextas.length; index += 1) {
     if (sexta[index].innerText === sextaText) {
       sexta[index].innerText = sextas[index];
+      sexta[index].style.color = '#777';
       sexta[index].style.backgroundImage = 'none';
     } else {
       sexta[index].innerText = sextaText;
-      sexta[index].style.backgroundImage = 'linear-gradient(red, yellow)';
+      sexta[index].style.color = 'black';
+      sexta[index].style.backgroundImage = `linear-gradient(${createRGB()}, ${createRGB()})`;
     }
   }
 }
@@ -131,8 +132,14 @@ function addColorTask(cor) {
 function createTask() {
   const taskInput = document.getElementById('task-input');
   const span = document.createElement('span');
-  span.innerText = taskInput.value;
-  return span;
+  if (taskInput.value === '') {
+    window.alert('Escreve alguma coisa aí');
+  } else {
+    span.innerText = taskInput.value;
+    span.style.paddingLeft = '15px';
+    taskInput.value = '';
+    return span;
+  }
 }
 
 function createRGB() {
@@ -151,7 +158,13 @@ function addTask() {
 
 function tasks() {
   const btnAdd = document.getElementById('btn-add');
+  const taskInput = document.getElementById('task-input');
   btnAdd.addEventListener('click', addTask);
+  taskInput.addEventListener('keydown', function (event) {
+    if (event.keyCode === 13) {
+      addTask();
+    }
+  });
 }
 
 function inicio() {
