@@ -28,6 +28,7 @@ function AddDays(dezDaysList, index) {
 }
 
 function holidayColor() {
+  const feriados = [24, 25, 31];
   const feriadoColor = 'red';
   const feriado = document.getElementsByClassName('holiday');
   for (let index = 0; index < feriados.length; index += 1) {
@@ -39,21 +40,28 @@ function holidayColor() {
   }
 }
 
-function holiday() {
+function holiday(feriados) {
   const button = document.createElement('button');
   button.id = 'btn-holiday';
-  button.innerText = 'Feriados';
+  button.innerText = feriados;
   document.querySelector('.buttons-container').appendChild(button);
   button.addEventListener('click', holidayColor);
+}
+
+function friday(sexta) {
+  const button = document.createElement('button');
+  button.id = 'btn-friday';
+  button.innerText = sexta;
+  document.querySelector('.buttons-container').appendChild(button);
 }
 
 const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
   11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 
   26, 27, 28, 29, 30, 31];
-const feriados = [24, 25, 31];
 const days = document.getElementById('days');
 for (let index = 0; index < dezDaysList.length; index += 1) {
   days.appendChild(AddDays(dezDaysList, index));
 }
 
-holiday();
+holiday('Feriados');
+friday('Sexta-feira');
