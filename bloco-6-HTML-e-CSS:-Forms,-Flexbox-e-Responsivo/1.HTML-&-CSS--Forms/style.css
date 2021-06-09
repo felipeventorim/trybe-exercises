@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+fieldset {
+  margin: 50px 50px 0;
+  padding: 15px;
+}
+
+input {
+  margin: 7px 0;
+}
+
+input[type=text], textarea {
+  border: 1px solid rgb(120, 120, 120);
+  font-size: 14px;
+  padding: 7px;
+  width: 100%;
+}
+
+.input-radio {
+  margin-left: 10px;
+}
