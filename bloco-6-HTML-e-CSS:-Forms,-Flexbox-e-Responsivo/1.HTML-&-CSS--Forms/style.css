@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 20px;
+  text-align: center;
+}
+
+.box-formulario {
+  margin: 50px 50px 0;
+  padding: 15px;
+}
+
+input {
+  margin: 7px 0;
+}
+
+input[type=text], textarea {
+  border: 1px solid rgb(120, 120, 120);
+  font-size: 14px;
+  padding: 7px;
+  width: 100%;
+}
+
+.input-radio {
+  margin-left: 10px;
+}
+
+.btn {
+  margin: auto;
+  padding: 7px;
+  text-align: center;
+  width: 300px;
+}
+
+button {
+  margin: 14px;
+  padding: 7px;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: rgb(120, 120, 120);
+  box-shadow: 2px 2px;
+}
+
+.curriculo {
+  display: block;
+  font-size: 24px;
+  width: 600px;
+  margin: 20px auto;
+}
