@@ -41,11 +41,11 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 5-2: _JavaScript - Trabalhando com elementos_
 - [X] 5-3: _JavaScript - Eventos_
 - [X] 5-4: _JavaScript - Web Storage_
-- [X] 5-5: _[Projeto - Arte com Pixels](felipeventorim.github.io/trybe-projects/03-pixels-art/)_
-- [X] 5-6: _[Projeto - Lista de tarefas](felipeventorim.github.io/trybe-projects/04-todo-list/)_
-- [X] 5-7: _[Projeto - Meme Generator](felipeventorim.github.io/trybe-projects/05-meme-generator/)_
-- [X] 5-7: _[Projeto - Adivinhe a Cor](felipeventorim.github.io/trybe-projects/06-color-guess/)_
-- [X] 5-7: _[Projeto - Carta Misteriosa](felipeventorim.github.io/trybe-projects/07-mistery-letter/)_
+- [X] 5-5: _[Projeto - Arte com Pixels](https://felipeventorim.github.io/trybe-projects/03-pixels-art/)_
+- [X] 5-6: _[Projeto - Lista de tarefas](https://felipeventorim.github.io/trybe-projects/04-todo-list/)_
+- [X] 5-7: _[Projeto - Meme Generator](https://felipeventorim.github.io/trybe-projects/05-meme-generator/)_
+- [X] 5-7: _[Projeto - Adivinhe a Cor](https://felipeventorim.github.io/trybe-projects/06-color-guess/)_
+- [X] 5-7: _[Projeto - Carta Misteriosa](https://felipeventorim.github.io/trybe-projects/07-mistery-letter/)_
 
 ##### Bloco 6: HTML & CSS avançado
 
