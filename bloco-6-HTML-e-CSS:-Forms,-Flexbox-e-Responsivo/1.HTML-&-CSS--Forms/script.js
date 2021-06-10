@@ -1,135 +1,96 @@
-const estado = document.getElementById('input-estado');
-for (let index = 0; index < 27; index += 1) {
-  const option = document.createElement('option');
-  switch (index) {
-    case 0:
-      option.innerText = 'Acre';
-      option.setAttribute('value', 'AC');
-      break;
-    case 1:
-      option.innerText = 'Alagoas';
-      option.setAttribute('value', 'AL');
-      break;
-    case 2:
-      option.innerText = 'Amapá';
-      option.setAttribute('value', 'AP');
-      break;
-    case 3:
-      option.innerText = 'Amazonas';
-      option.setAttribute('value', 'AM');
-      break;
-    case 4:
-      option.innerText = 'Bahia';
-      option.setAttribute('value', 'BA');
-      break;
-    case 5:
-      option.innerText = 'Ceará';
-      option.setAttribute('value', 'CE');
-      break;
-    case 6:
-      option.innerText = 'Distrito Federal';
-      option.setAttribute('value', 'DF');
-      break;
-    case 7:
-      option.innerText = 'Espírito Santo';
-      option.setAttribute('value', 'ES');
-      break;
-    case 8:
-      option.innerText = 'Goiás';
-      option.setAttribute('value', 'GO');
-      break;
-    case 9:
-      option.innerText = 'Maranhão';
-      option.setAttribute('value', 'MA');
-      break;
-    case 10:
-      option.innerText = 'Mato Grosso';
-      option.setAttribute('value', 'MT');
-      break;
-    case 11:
-      option.innerText = 'Mato Grosso do Sul';
-      option.setAttribute('value', 'MS');
-      break;
-    case 12:
-      option.innerText = 'Minas Gerais';
-      option.setAttribute('value', 'MG');
-      break;
-    case 13:
-      option.innerText = 'Pará';
-      option.setAttribute('value', 'PA');
-      break;
-    case 14:
-      option.innerText = 'Paraíba';
-      option.setAttribute('value', 'PB');
-      break;
-    case 15:
-      option.innerText = 'Paraná';
-      option.setAttribute('value', 'PR');
-      break;
-    case 16:
-      option.innerText = 'Pernambuco';
-      option.setAttribute('value', 'PE');
-      break;
-    case 17:
-      option.innerText = 'Piauí';
-      option.setAttribute('value', 'PI');
-      break;
-    case 18:
-      option.innerText = 'Rio de Janeiro';
-      option.setAttribute('value', 'RJ');
-      break;
-    case 19:
-      option.innerText = 'Rio Grande do Norte';
-      option.setAttribute('value', 'RN');
-      break;
-    case 20:
-      option.innerText = 'Rio Grande do Sul';
-      option.setAttribute('value', 'RS');
-      break;
-    case 21:
-      option.innerText = 'Rondônia';
-      option.setAttribute('value', 'RO');
-      break;
-    case 22:
-      option.innerText = 'Roraima';
-      option.setAttribute('value', 'RR');
-      break;
-    case 23:
-      option.innerText = 'Santa Catarina';
-      option.setAttribute('value', 'SC');
-      break;
-    case 24:
-      option.innerText = 'São Paulo';
-      option.setAttribute('value', 'SP');
-      break;
-    case 25:
-      option.innerText = 'Sergipe';
-      option.setAttribute('value', 'SE');
-      break;
-    case 26:
-      option.innerText = 'Tocantins';
-      option.setAttribute('value', 'TO');
-      break;
-
-    default:
-      break;
+const buttonSubmit = document.getElementById('submit');
+let validador = true;
+function listaEstado() {
+  const estado = document.getElementById('input-estado');
+  const estadoSigla = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF',
+  'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI',
+  'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
+  
+  for (let index = 0; index < 27; index += 1) {
+    const option = document.createElement('option');
+    option.innerText = estadoSigla[index];
+    option.value = estadoSigla[index];
+    estado.appendChild(option);
   }
-  estado.appendChild(option);
 }
 
-const data = document.getElementById('input-data').value;
-const dia = parseInt(data[0] + data[1], 10);
-const mes = parseInt(data[3] + data[4], 10);
-const ano = parseInt(data[6] + data[7] + data[8] + data[9], 10);
-
-if (
-  !(
-    dia > 0 && dia <= 31
-    && mes > 0 && mes <= 12
-    && ano > 0
-    && data[2] === '/'
-    && data[5] === '/'
-  )
-) {
-  window.alert('Data de início inválida');
+function validacoes() {
+  const itens = document.querySelectorAll('.item-form');
+  for (let index = 0; index < itens.length; index += 1) {
+    if (!itens[index].value) {
+      window.alert('Preencha o campo '.concat(itens[index].name));
+      validador = false;
+      return;
+    }
+  }
 }
+
+function testa(dia, mes) {
+  if (mes <= 0 || mes > 12) {
+    window.alert('Data de início com mês inválido');
+    validador = false;
+  }
+  if (dia <= 0 || dia > 31) {
+    window.alert('Data de início com dia inválido');
+    validador = false;
+  }
+}
+
+function verificaData() {
+  const data = document.getElementById('input-data').value;
+  const regex = /\d\d\u002F\d\d\u002F\d\d\d\d/;
+  if (data.match(regex) !== null) {
+    const dia = data.split('/')[0];
+    const mes = data.split('/')[1];
+    const ano = data.split('/')[2];
+    if (ano < 1) {
+      window.alert('Data de início com ano inválido');
+      validador = false;
+    }
+    testa(dia, mes);
+  } else {
+    window.alert('Data de início com formato inválido');
+    validador = false;
+  }
+}
+
+function montarObjeto() {
+  const itens = document.querySelectorAll('.item-form');
+  const obj = {};
+  for (let index = 0; index < itens.length; index += 1) {
+    if (!(itens[index].name === 'tipo' && !itens[index].checked)) {
+      obj[itens[index].name] = itens[index].value;
+    }
+  }
+  return obj;
+}
+
+function imprimeObjeto() {
+  const objeto = montarObjeto();
+  const curriculo = document.getElementById('curriculo-criado');
+  let mensagem = '';
+  for (const key in objeto) {
+    if (Object.prototype.hasOwnProperty.call(objeto, key)) {
+      mensagem += `${key}: ${objeto[key]}\n`;
+    }
+  }
+  curriculo.innerText = mensagem;
+}
+
+function submit() {
+    buttonSubmit.addEventListener('click', (event) => {
+      event.preventDefault();
+      validacoes();
+      verificaData();
+      console.log(validador);
+      if (validador) {
+        imprimeObjeto();
+      }
+      validador = true;
+    });
+}
+
+window.onload = function inicio() {
+  listaEstado();
+  submit();
+};

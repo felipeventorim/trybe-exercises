@@ -4,7 +4,12 @@
   box-sizing: border-box;
 }
 
-fieldset {
+h1 {
+  margin: 20px;
+  text-align: center;
+}
+
+.box-formulario {
   margin: 50px 50px 0;
   padding: 15px;
 }
@@ -22,4 +27,29 @@ input[type=text], textarea {
 
 .input-radio {
   margin-left: 10px;
+}
+
+.btn {
+  margin: auto;
+  padding: 7px;
+  text-align: center;
+  width: 300px;
+}
+
+button {
+  margin: 14px;
+  padding: 7px;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: rgb(120, 120, 120);
+  box-shadow: 2px 2px;
+}
+
+.curriculo {
+  display: block;
+  font-size: 24px;
+  width: 600px;
+  margin: 20px auto;
 }
