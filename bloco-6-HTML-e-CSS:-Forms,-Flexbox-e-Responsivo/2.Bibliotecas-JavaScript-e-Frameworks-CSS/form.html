@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Just-validate-master/dist/css/justValidateTooltip.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <title>Formulário de currículo</title>
+</head>
+<body class="bg-dark text-white">
+  <header class="text-center"><h1 class="display-1">Formulário de currículo</h1></header>
+  <form class="your-form" action="" method="get">
+    <div class="container mt-4">
+      <p class="lead">Dados pessoais</p>
+      <label class="form-label" for="input-name">Nome</label>
+      <input type="text" class="form-control" data-validate-field="name" name="nome" id="input-name">
+
+      <label class="form-label" for="input-email">E-mail</label>
+      <input type="text" class="form-control" data-validate-field="email" name="email" id="input-email">
+      
+      <label class="form-label" for="input-cpf">CPF</label>
+      <input type="text" class="form-control" name="cpf" id="input-cpf" maxlength="11">
+      
+      <label class="form-label" for="input-endereco">Endereço</label>
+      <input type="text" class="form-control" name="endereco" id="input-endereco" maxlength="200">
+      
+      <label class="form-label" for="input-cidade">Cidade</label>
+      <input type="text" class="form-control" name="cidade" id="input-cidade" maxlength="28">
+
+      <div class="input-group my-4">
+        <label class="input-group-text" for="input-estado">Estado</label>
+        <select name="estado" class="form-select" id="input-estado"></select>
+      </div>
+    </div>
+
+    <div class="container">
+      <p>Tipo de imóvel:</p>
+      <div class="form-check">
+        <label class="form-check-label" for="input-casa">
+          <input type="radio" name="tipo" id="input-casa" class="form-check-input" value="casa"> Casa
+        </label>
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label" for="input-ap">
+          <input type="radio" name="tipo" id="input-ap" class="form-check-input" value="apartamento"> Apartamento
+        </label>
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <p class="lead">Último emprego</p>
+      <label class="form-label" for="input-resumo">Resumo do currículo</label>
+      <textarea name="resumo" class="form-control" id="input-resumo" cols="50" rows="5" maxlength="1000"></textarea>
+
+      <label class="form-label" for="input-cargo">Cargo</label>
+      <input type="text" class="form-control" name="cargo" id="input-cargo" maxlength="40">
+
+      <label class="form-label" for="input-descricao">Descrição do cargo</label>      <input type="text" class="form-control" name="descricao" id="input-descricao" maxlength="500">
+
+      <label class="form-label" for="datepicker">Data de início</label>
+      <input type="text" class="form-control" name="data" id="datepicker" autocomplete="none" placeholder="dd/mm/aaaa" maxlength="10">
+    </div>
+
+    <div class="container my-4">
+      <button class="form__btn btn btn-outline-success" type="submit" id="submit">Enviar currículo</button>
+      <button class="btn btn-outline-secondary" type="reset">Reset</button>
+    </div>
+
+    <div id="curriculo-criado" class="container my-4"></div>
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+  <script src="Just-validate-master/dist/js/just-validate.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
