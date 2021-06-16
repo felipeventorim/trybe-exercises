@@ -14,7 +14,6 @@ body {
 
 .container header {
   display: flex;
-  flex-direction: column;
   text-align: center;
 }
 
@@ -27,6 +26,10 @@ ul li {
   padding: 5px 0;
 }
 
+.asides {
+  display: flex;
+}
+
 .main-content p, footer p {
   text-align: justify;
 }
@@ -35,8 +38,9 @@ ul li {
   body {
     margin: 20px;
   }
-
+  
   .container header {
+    flex-direction: column;
     margin: 10px 0 30px;
   }
 
@@ -51,7 +55,6 @@ ul li {
   }
 
   .asides {
-    display: flex;
     align-items: center;
   }
 
@@ -75,6 +78,7 @@ ul li {
   }
 
   .main-content p {
+    font-size: 14px;
     padding-bottom: 10px;
   }
 
@@ -86,5 +90,71 @@ ul li {
   footer p {
     font-size: 12px;
     margin: 5px 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  body {
+    margin: 40px;
+  }
+
+  .container header {
+    margin: 10px 0 30px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .container header p {
+    font-size: 44px;
+  }
+
+  .container nav ul {
+    justify-content: space-between;
+  }
+
+  .container nav ul li {
+    margin-left: 15px;
+  }
+
+  .asides {
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0;
+  }
+
+  .aside-one ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 180px;
+  }
+
+  .aside-one ul li {
+    margin-right: 20px;
+  }
+
+  .aside-two {
+    align-self: flex-start;
+    text-align: right;
+  }
+
+  .main-content h1 {
+    font-size: 36px;
+  }
+
+  .main-content p {
+    font-size: 18px;
+    padding-bottom: 20px;
+  }
+
+  footer h3 {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  footer p {
+    font-size: 16px;
+    margin: 10px 0;
   }
 }
