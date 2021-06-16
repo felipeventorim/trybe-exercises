@@ -158,3 +158,76 @@ ul li {
     margin: 10px 0;
   }
 }
+
+@media screen and (min-width: 1200px) {
+  body {
+    margin: 40px;
+  }
+
+  .container header {
+    margin: 10px 0 30px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .container header p {
+    font-size: 56px;
+  }
+
+  .container nav {
+    width: 300px;
+  }
+
+  .container nav ul {
+    justify-content: space-between;
+  }
+
+  .container nav ul li {
+    margin-left: 30px;
+  }
+
+  main {
+    display: flex;
+    width: 90vw;
+  }
+
+  .asides {
+    flex-direction: column;
+    flex-basis: 25%;
+    margin: 40px 0;
+  }
+
+  .asides h2 {
+    font-size: 30px;
+  }
+
+  .aside-two {
+    align-self: flex-start;
+    margin-top: 40px;
+  }
+
+  .main-content {
+    flex-basis: 75%;
+  }
+
+  .main-content h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .main-content p {
+    font-size: 20px;
+    padding-bottom: 25px;
+  }
+
+  footer h3 {
+    font-size: 18px;
+    margin: 30px 0;
+  }
+
+  footer p {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+}
