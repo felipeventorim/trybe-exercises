@@ -6,7 +6,7 @@ const removeMiddle = (words) => {
   middleWord.push(words[middle]);
   words.splice(middle, 1);
   return middleWord;
-}
+};
 
 const words = ['mouse', 'giraffe', 'queen', 'window', 'bottle'];
 const expectedWords = ['mouse', 'giraffe', 'window', 'bottle'];
