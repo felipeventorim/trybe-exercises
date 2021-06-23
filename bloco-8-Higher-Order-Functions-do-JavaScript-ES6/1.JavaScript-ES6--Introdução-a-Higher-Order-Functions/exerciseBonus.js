@@ -67,3 +67,24 @@ const mageDamage = (intelligence, mana) => {
     manaConsume,
   };
 };
+
+const gameActions = {
+  warrior: () => {
+    const damage = warriorDamage(warrior.strength, warrior.weaponDmg);
+    dragon.healthPoints -= damage;
+    warrior.damage = damage;
+  },
+  mage: () => {
+    const attributes = mageDamage(mage.intelligence, mage.mana);
+    dragon.healthPoints -= attributes.damage;
+    mage.damage = attributes.damage;
+    mage.mana = attributes.manaConsume;
+  },
+  dragon: () => {
+    const damage = dragonDamage(dragon.strength);
+    warrior.healthPoints -= damage;
+    mage.healthPoints -= damage;
+    dragon.damage = damage;
+  },
+  status: () => console.table(battleMembers),
+};
