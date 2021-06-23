@@ -4,3 +4,22 @@ Passe sua função como parâmetro da HOF newEmployees para criar cada pessoa co
 A sua função deve receber como parâmetro o nome completo da pessoa funcionária e a partir dele gerar automaticamente
 um email no formato nome_da_pessoa@trybe.com .
 */
+
+const setNewEmployee = (name) => {
+  const nameWithUnderline = name.toLowerCase().replace(' ', '_');
+  return {
+    name,
+    email: `${nameWithUnderline}@trybe.com`,
+  };
+};
+
+const newEmployees = () => {
+  const employees = {
+    id1: setNewEmployee('Pedro Guerra'), // Nome: Pedro Guerra -> Chame sua função passando o nome Pedro Guerra como parâmetro, substituindo as aspas
+    id2: setNewEmployee('Luiza Drumond'), // Nome: Luiza Drumond -> Chame sua função passando o nome Luiza Drumond como parâmetro, substituindo as aspas
+    id3: setNewEmployee('Carla Paiva'), // Nome: Carla Paiva -> Chame sua função passando o nome Carla Paiva como parâmetro, substituindo as aspas
+  };
+  return employees;
+};
+
+console.log(newEmployees());
