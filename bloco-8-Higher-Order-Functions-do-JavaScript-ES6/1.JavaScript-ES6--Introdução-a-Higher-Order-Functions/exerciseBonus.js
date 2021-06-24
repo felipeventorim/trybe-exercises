@@ -20,7 +20,7 @@ const warrior = {
 
 const dragon = {
   healthPoints: 350,
-  strength: 50,
+  strength: 100,
   damage: undefined,
 };
 
@@ -38,29 +38,30 @@ const battleMembers = { mage, warrior, dragon };
 - A mana consumida por turno é 15. Além disto a função deve ter uma condicional, caso o mago tenha menos de 15 de mana o valor de dano recebe uma mensagem (Ex: "Não possui mana suficiente") e a mana gasta é 0.
 */
 
-const dragonDamage = (strength) => {
-  let damage = Math.floor(Math.random() * strength) + 1;
+const dragonAttack = (dragon) => {
+  let damage = Math.floor(Math.random() * dragon.strength) + 1;
   if (damage < 15) {
     damage = 15;
   }
   return damage;
 };
 
-const warriorDamage = (strength, weaponDmg) => {
-  let damage = Math.floor(Math.random() * (strength * weaponDmg)) + 1;
-  if (damage < strength) {
-    damage = strength;
+const warriorAttack = (warrior) => {
+  let damage = Math.floor(Math.random() * (warrior.strength * warrior.weaponDmg)) + 1;
+  if (damage < warrior.strength) {
+    damage = warrior.strength;
   }
   return damage;
 };
 
-const mageDamage = (intelligence, mana) => {
-  const damage = Math.floor(Math.random() * intelligence) + intelligence + 1;
+const mageAttack = (mage) => {
+  let damage = Math.floor(Math.random() * mage.intelligence) + mage.intelligence + 1;
   let manaConsume;
-  if (mana < 15) {
-    manaConsume = 'Não possui mana suficiente';
+  if (mage.mana < 15) {
+    damage = 'Não possui mana suficiente';
+    manaConsume = mage.mana;
   } else {
-    manaConsume = mana - 15;
+    manaConsume = mage.mana - 15;
   }
   return {
     damage,
@@ -68,23 +69,54 @@ const mageDamage = (intelligence, mana) => {
   };
 };
 
+/*
+Parte II
+Agora que você já possui a implementação das funções relativas aos três exercícios anteriores, passe-as como parâmetro para outras funções que irão compor
+um objeto gameActions . O objeto será composto por ações do jogo e cada ação é por denifição uma HOF , pois neste caso, são funções que recebem como
+parâmetro outra função.
+
+1 - Crie a primeira HOF que compõe o objeto gameActions . Ela será a função que simula o turno do personagem warrior . Esta HOF receberá como parâmetro
+ a função que calcula o dano deferido pelo personagem warrior e atualizará os healthPoints do monstro dragon . Além disto ela também deve atualizar o valor
+ da chave damage do warrior.
+2 - Crie a segunda HOF que compõe o objeto gameActions . Ela será a função que simula o turno do personagem mage . Esta HOF receberá como parâmetro a
+ função que calcula o dano deferido pelo personagem mage e atualizará os healthPoints do monstro dragon . Além disto ela também deve atualizar o valor
+ das chaves damage e mana do mage.
+3 - Crie a terceira HOF que compõe o objeto gameActions . Ela será a função que simula o turno do monstro dragon . Esta HOF receberá como parâmetro a
+ função que calcula o dano deferido pelo monstro dragon e atualizará os healthPoints dos personagens mage e warrior . Além disto ela também deve atualizar
+ o valor da chave damage do monstro.
+4 - Adicione ao objeto gameActions uma função que retorne o objeto battleMembers atualizado e faça um console.log para visualizar o resultado final do turno.
+*/
+
 const gameActions = {
-  warrior: () => {
-    const damage = warriorDamage(warrior.strength, warrior.weaponDmg);
+  warriorTurn: (callback) => {
+    const damage = callback(warrior);
+    if (warrior.healthPoints > 0) {
     dragon.healthPoints -= damage;
+    }
     warrior.damage = damage;
   },
-  mage: () => {
-    const attributes = mageDamage(mage.intelligence, mage.mana);
+  mageTurn: (callback) => {
+    const attributes = callback(mage);
+    if (typeof attributes.damage === 'number' && mage.healthPoints > 0) {
     dragon.healthPoints -= attributes.damage;
+    }
     mage.damage = attributes.damage;
     mage.mana = attributes.manaConsume;
   },
-  dragon: () => {
-    const damage = dragonDamage(dragon.strength);
+  dragonTurn: (callback) => {
+    const damage = callback(dragon);
+    if (dragon.healthPoints > 0) {
     warrior.healthPoints -= damage;
     mage.healthPoints -= damage;
+    }
     dragon.damage = damage;
   },
   status: () => console.table(battleMembers),
 };
+
+while ((warrior.healthPoints > 0 || mage.healthPoints > 0) && dragon.healthPoints > 0) {
+  gameActions.warriorTurn(warriorAttack);
+  gameActions.mageTurn(mageAttack);
+  gameActions.dragonTurn(dragonAttack);
+  gameActions.status();
+}

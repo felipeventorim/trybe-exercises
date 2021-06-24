@@ -15,7 +15,7 @@ const compare = (rightTest, studentTest) => {
   if (studentTest === 'N.A') {
     return 0;
   }
-  return 0.5;
+  return - 0.5;
 };
 
 const checkTest = (rightTest, studentTest, callback) => {
