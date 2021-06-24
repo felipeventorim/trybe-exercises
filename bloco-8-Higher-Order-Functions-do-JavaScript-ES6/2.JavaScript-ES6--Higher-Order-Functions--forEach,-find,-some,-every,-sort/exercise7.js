@@ -6,10 +6,16 @@ const books = require('./exercise1');
 const expectedResult = false;
 
 function authorUnique() {
-  return books.every((book) => 
-    books.some((book2) => 
-      (book2.author.birthYear === book.author.birthYear 
-        && book2.author.name !== book.author.name)));
+  let differentBirthYear = true;
+  books.forEach((book) => {
+    books.forEach((book2) => {
+      if (book2.author.birthYear === book.author.birthYear 
+        && book2.author.name !== book.author.name) {
+          differentBirthYear = false;
+      }
+    });
+  });
+  return differentBirthYear;
 }
 
 assert.strictEqual(authorUnique(), expectedResult);
