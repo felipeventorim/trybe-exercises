@@ -1,8 +1,6 @@
 const assert = require('assert');
 const books = require('./exercise1');
 
-// 4 - Crie um array ordenado pelos livros com mais de 60 anos de publicação e ordene-o pelo livro mais velho.
-
 const expectedResult = [
   {
     id: 6,
@@ -27,8 +25,11 @@ const expectedResult = [
   },
 ];
 
+// 4 - Crie um array ordenado pelos livros com mais de 60 anos de publicação e ordene-o pelo livro mais velho.
+
 function oldBooksOrdered() {
-  // escreva seu código aqui
+  const oldBooks = books.filter((book) => 2021 - book.releaseYear > 60);
+  return oldBooks.sort((book1, book2) => book1.releaseYear - book2.releaseYear);
 }
 
 assert.deepStrictEqual(oldBooksOrdered(), expectedResult);
