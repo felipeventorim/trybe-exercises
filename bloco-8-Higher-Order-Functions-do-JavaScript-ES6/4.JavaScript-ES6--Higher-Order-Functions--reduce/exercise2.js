@@ -68,9 +68,10 @@ const expectedResult = 'George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Fra
 // 2 - Crie uma string com os nomes de todas as pessoas autoras.
 
 function reduceNames() {
-  // escreva seu código aqui
+  const listAuthors = books.map((book) => book.author.name).reduce((acc, book) => acc += `, ${book}`);
+  return `${listAuthors}.`;
 }
 
 assert.strictEqual(reduceNames(), expectedResult);
 
-module.exports(books);
+module.exports = books;
