@@ -3,13 +3,13 @@
 
 const getPlanet = () => {
   const mars = {
-    name: "Mars",
+    name: 'Mars',
     distanceFromSun: {
       value: 227900000,
-      measurementUnit: "kilometers",
+      measurementUnit: 'kilometers',
     },
   };
-  console.log("Returned planet: ", mars);
+  console.log('Returned planet: ', mars);
 };
 
-getPlanet(); // imprime Marte depois de 4 segundos
+setTimeout(getPlanet, 4000); // imprime Marte depois de 4 segundos
