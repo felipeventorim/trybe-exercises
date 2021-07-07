@@ -30,13 +30,13 @@ const fetchPromise = () => {
     if (summationNumbersSquared < 8000) {
       return resolve(summationNumbersSquared);
     }
-    reject('É mais de oito mil! Essa promise deve estar quebrada!');
+    reject();
   });
 
   promise
   .then((summation) => [2, 3, 5, 10].map((number) => summation / number))
   .then((array) => console.log(array.reduce((acc, number) => acc + number)))
-  .catch((error) => console.log(error));
+  .catch(() => console.log('É mais de oito mil! Essa promise deve estar quebrada!'));
 };
 
 fetchPromise();
