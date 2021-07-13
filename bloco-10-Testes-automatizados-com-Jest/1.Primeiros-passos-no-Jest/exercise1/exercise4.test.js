@@ -5,8 +5,6 @@
 // Faça uma chamada com um número que não é divisível por 3 ou 5 e verifique se o retorno é o esperado
 // Faça uma chamada com um parâmetro que não é um número e verifique se o retorno é o esperado
 
-const assert = require('assert');
-
 function myFizzBuzz(num) {
   if (typeof num !== 'number') return false;
   if (num % 3 === 0 && num % 5 === 0) return 'fizzbuzz';
@@ -16,3 +14,24 @@ function myFizzBuzz(num) {
 }
 
 // implemente seus testes aqui
+describe('myFizzBuzz(num)', () => {
+  it('should return fizzbuzz', () => {
+    expect(myFizzBuzz(15)).toEqual('fizzbuzz');
+  });
+
+  it('should return fizz', () => {
+    expect(myFizzBuzz(9)).toEqual('fizz');
+  });
+
+  it('should return buzz', () => {
+    expect(myFizzBuzz(10)).toEqual('buzz');
+  });
+
+  it('should return num', () => {
+    expect(myFizzBuzz(7)).toEqual(7);
+  });
+
+  it('should return false', () => {
+    expect(myFizzBuzz()).toBeFalsy();
+  });
+});
