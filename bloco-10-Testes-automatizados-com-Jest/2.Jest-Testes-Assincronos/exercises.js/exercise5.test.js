@@ -12,3 +12,15 @@ describe('Scoped / Nested block', () => {
 
   test('', () => console.log('2 - test'));
 });
+
+/*
+1 - beforeEach -> antes de todos os testes
+1 - test -> primeiro teste
+1 - afterEach -> depois de todos os testes
+
+1 - beforeEach
+2 - beforeEach -> antes de todos os testes desse describe
+2 - test -> segundo teste
+2 - afterEach -> depois de todos os testes desse describe
+1 - afterEach
+*/
