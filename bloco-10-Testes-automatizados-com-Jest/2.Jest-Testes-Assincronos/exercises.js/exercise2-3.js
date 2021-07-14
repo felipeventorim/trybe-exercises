@@ -4,9 +4,9 @@
 // 3 - Reescreva o teste do exercício anterior, desta vez utilizando a sintaxe de async/await .
 
 const users = {
-  : { name: 'Mark' },
-  : { name: 'Paul' }
-  };
+  4: { name: 'Mark' },
+  5: { name: 'Paul' },
+};
   
   const findUserById = (id) => {
     return new Promise((resolve, reject) => {
@@ -22,3 +22,4 @@ const users = {
     return findUserById(userID).then(user => user.name);
   };
   
+module.exports = getUserName;
