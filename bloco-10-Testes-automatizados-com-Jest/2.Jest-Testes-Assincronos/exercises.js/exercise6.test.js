@@ -3,6 +3,8 @@
 // 6.2 - Adicione uma nova funcionalidade para buscar pela idade dos animais. O retorno deve ser um array de objetos, mas,
 // caso não ache nenhum, retorne uma mensagem de erro. Escreva tanto a função como o seu teste.
 
+const { getAnimal, getAnimalByAge } = require('./exercise6');
+
 describe('Testando promise - findAnimalByName', () => {
   describe('Quando existe o animal com o nome procurado', () => {
     test('Retorne o objeto do animal', () => {
@@ -18,6 +20,26 @@ describe('Testando promise - findAnimalByName', () => {
       expect.assertions(1);
       return getAnimal('Bob').catch(error =>
         expect(error).toEqual('Nenhum animal com esse nome!')
+      );
+    });
+  });
+});
+
+describe('Testando promise - getAnimalByAge', () => {
+  describe('Quando existe o animal com a idade procurada', () => {
+    test('Retorne o objeto do animal', () => {
+      expect.assertions(1);
+      return getAnimalByAge(1).then(animal => {
+        expect(animal).toEqual([{ name: 'Dorminhoco', age: 1, type: 'Dog' }]);
+      });
+    });
+  });
+
+  describe('Quando não existe o animal com a idade procurada', () => {
+    test('Retorna um erro', () => {
+      expect.assertions(1);
+      return getAnimalByAge(3).catch(error =>
+        expect(error).toEqual('Nenhum animal com essa idade!')
       );
     });
   });

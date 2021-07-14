@@ -15,7 +15,7 @@ const findAnimalsByType = (type) => (
       const arrayAnimals = Animals.filter((animal) => animal.type === type);
       if (arrayAnimals.length !== 0) {
         return resolve(arrayAnimals);
-      };
+      }
 
       return reject({ error: 'Não possui esse tipo de animal.' });
     }, 100);
@@ -23,13 +23,41 @@ const findAnimalsByType = (type) => (
 );
 
 const getListAnimals = (type) => (
-  findAnimalsByType(type).then(list => list)
+  findAnimalsByType(type).then((list) => list)
 );
 
 const findAnimalByName = (name) => (
-  // Adicione o código aqui.
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const arrayAnimals = Animals.find((animal) => animal.name === name);
+      if (arrayAnimals) {
+        return resolve(arrayAnimals);
+      }
+
+      return reject('Nenhum animal com esse nome!');
+    }, 100);
+  })
 );
 
-const getAnimal = (name) => {
-  // Adicione o código aqui.
-};
+const getAnimal = (name) => (
+  findAnimalByName(name).then((list) => list)
+);
+
+const findAnimalByAge = (age) => (
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const arrayAnimals = Animals.filter((animal) => animal.age === age);
+      if (arrayAnimals.length !== 0) {
+        return resolve(arrayAnimals);
+      }
+
+      return reject('Nenhum animal com essa idade!');
+    }, 100);
+  })
+);
+
+const getAnimalByAge = (age) => (
+  findAnimalByAge(age).then((list) => list)
+);
+
+module.exports = { getAnimal, getAnimalByAge };
