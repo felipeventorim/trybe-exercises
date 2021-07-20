@@ -9,6 +9,13 @@ jest.mock('node-fetch');
 
 describe('For the fetchAPI function', () => {
   it('Should call the function, what is its return and how many times it was called', async () => {
+    // fetch.mockImplementationOnce(async () => ({
+    //   json: () => 'request sucess',
+    // }));
+  
+    // fetch.mockImplementationOnce(() =>
+    //   Promise.reject(Promise.reject('request failed')),
+    // );
     fetch.mockImplementation(async () => ({
       json: async () => 'request sucess',
     }));
