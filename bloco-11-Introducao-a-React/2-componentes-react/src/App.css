@@ -1,0 +1,12 @@
+header {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  width: 60%;
+  margin: auto;
+  gap: 0.5em;
+}
