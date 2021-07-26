@@ -1,0 +1,19 @@
+.pokemom {
+  display: flex;
+  justify-content: space-around;
+  flex-basis: 1;
+  border-radius: 10px;
+  border: 1px solid gray;
+  flex-grow: 1;
+  width: 40%;
+}
+
+.data {
+  text-align: center;
+  width: 50%;
+}
+
+.data p:first-child {
+  font-size: 1.1em;
+  font-weight: 700;
+}
