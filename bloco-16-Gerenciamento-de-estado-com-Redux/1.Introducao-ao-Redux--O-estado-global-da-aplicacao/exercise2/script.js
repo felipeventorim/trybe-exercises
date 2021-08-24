@@ -75,10 +75,11 @@ window.onload = () => {
     const sobrenome1 = document.querySelector('#sobrenome-1');
     const nome2 = document.querySelector('#nome-2');
     const sobrenome2 = document.querySelector('#sobrenome-2');
+    const { meuPrimeiroReducer, meuSegundoReducer } = store.getState();
 
-    nome1.innerHTML = store.getState().meuPrimeiroReducer.nome;
-    sobrenome1.innerHTML = store.getState().meuPrimeiroReducer.sobrenome;
-    nome2.innerHTML = store.getState().meuSegundoReducer.nome;
-    sobrenome2.innerHTML = store.getState().meuSegundoReducer.sobrenome;    
+    nome1.innerHTML = meuPrimeiroReducer.nome;
+    sobrenome1.innerHTML = meuPrimeiroReducer.sobrenome;
+    nome2.innerHTML = meuSegundoReducer.nome;
+    sobrenome2.innerHTML = meuSegundoReducer.sobrenome;    
   });
 }
